@@ -1,0 +1,1354 @@
+{
+  "version": 1,
+  "source": "data/test_case.jsonl",
+  "description": "演示缓存：命中指定三组输入时，直接返回清洗后的全流程结果。",
+  "cases": [
+    {
+      "case_id": "tomato_egg_cucumber_child",
+      "match": {
+        "items": [
+          "西红柿",
+          "鸡蛋",
+          "黄瓜"
+        ],
+        "excluded_items": [
+          "香菜"
+        ],
+        "filters": {
+          "count_seasonings_as_ingredients": false,
+          "spice": "not_spicy",
+          "complexity": "simple",
+          "diet": "vegetarian",
+          "for_children": true,
+          "serving_size": "small",
+          "seasoning_amount": "few",
+          "methods": [
+            "拌",
+            "炒"
+          ]
+        }
+      },
+      "source_run_indexes": [
+        3
+      ],
+      "strict_rerank_hit": true,
+      "response": {
+        "input": {
+          "items": [
+            "西红柿",
+            "鸡蛋",
+            "黄瓜"
+          ],
+          "excluded_items": [
+            "香菜"
+          ],
+          "filters": {
+            "count_seasonings_as_ingredients": false,
+            "spice": "not_spicy",
+            "complexity": "simple",
+            "diet": "vegetarian",
+            "for_children": true,
+            "serving_size": "small",
+            "seasoning_amount": "few",
+            "methods": [
+              "炒",
+              "拌"
+            ]
+          },
+          "limit": 5
+        },
+        "rerank_status": {
+          "enabled": true,
+          "configured": true,
+          "attempted": true,
+          "applied": true,
+          "candidate_count": 5,
+          "applied_count": 1,
+          "model": "deepseek-v4-pro",
+          "fallback": "single_candidate",
+          "warning": "模型返回空内容，finish_reason=length; 重试失败: 模型返回空内容，finish_reason=length",
+          "error": null
+        },
+        "search_total": 2418,
+        "items": [
+          {
+            "rank": 1,
+            "search_result": {
+              "recipe_id": 1,
+              "source_recipe_id": "r0000067",
+              "title": "超美味的西红柿蛋汤",
+              "dish": "西红柿蛋汤",
+              "quality_score": 1.0,
+              "matched": [
+                "番茄",
+                "鸡蛋"
+              ],
+              "missing": [],
+              "bucket": "马上能做",
+              "score": 1.157,
+              "reason": "命中 2 个已有食材，必需食材已覆盖，偏好匹配：素菜、不辣、适合小孩、分量少，质量分 1.00",
+              "recipe_tags": [
+                "不辣",
+                "素菜",
+                "复杂",
+                "调料少",
+                "分量少",
+                "适合小孩",
+                "炒"
+              ],
+              "preference_matches": [
+                "素菜",
+                "不辣",
+                "适合小孩",
+                "分量少",
+                "调料少",
+                "炒"
+              ],
+              "preference_mismatches": [
+                "简单"
+              ],
+              "preference_score": 0.34,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 1,
+              "source_recipe_id": "r0000067",
+              "original_title": "超美味的西红柿蛋汤",
+              "generated_title": "番茄黄瓜炒鸡蛋",
+              "summary": "酸甜开胃，颜色鲜艳，简单快手，非常适合小朋友的素食小炒。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡蛋",
+                "番茄",
+                "黄瓜"
+              ],
+              "missing": [],
+              "ingredients": [
+                "鸡蛋 2个",
+                "西红柿 2个",
+                "黄瓜 1根"
+              ],
+              "steps": [
+                "黄瓜洗净切薄片，西红柿洗净切小块，鸡蛋打散备用。",
+                "热锅放油，倒入蛋液炒熟，盛出备用。",
+                "锅中再加少许油，放入西红柿块，中火炒至出汤变软。",
+                "加入黄瓜片翻炒半分钟，再倒入炒好的鸡蛋，调入适量盐，炒匀即可出锅。"
+              ],
+              "tips": [
+                "想要口感更滑嫩，可在出锅前淋入少许水淀粉。",
+                "西红柿炒出汤汁后味道更酸甜，无需额外加糖。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 2,
+            "search_result": {
+              "recipe_id": 2262,
+              "source_recipe_id": "r1331411",
+              "title": "玉米饼",
+              "dish": "米饼",
+              "quality_score": 0.9,
+              "matched": [
+                "鸡蛋"
+              ],
+              "missing": [
+                "汤勺玉米面",
+                "蜂蜜"
+              ],
+              "bucket": "还差几样",
+              "score": 1.108,
+              "reason": "命中 1 个已有食材，缺少 2 个食材，偏好匹配：素菜、不辣、简单、适合小孩，质量分 0.90，模型判断：匹配食材鸡蛋，缺玉米面和蜂蜜，但完全符合素食、不辣、简单、适合小孩等所有偏好",
+              "recipe_tags": [
+                "不辣",
+                "素菜",
+                "简单",
+                "调料少",
+                "分量少",
+                "适合小孩",
+                "拌"
+              ],
+              "preference_matches": [
+                "素菜",
+                "不辣",
+                "简单",
+                "适合小孩",
+                "分量少",
+                "调料少",
+                "拌"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.46,
+              "rerank_score": 0.9,
+              "rerank_reason": "匹配食材鸡蛋，缺玉米面和蜂蜜，但完全符合素食、不辣、简单、适合小孩等所有偏好"
+            },
+            "generated_recipe": {
+              "recipe_id": 2262,
+              "source_recipe_id": "r1331411",
+              "original_title": "玉米饼",
+              "generated_title": "西红柿炒鸡蛋配凉拌黄瓜",
+              "summary": "一道色彩鲜艳、清爽可口的家常素菜，嫩滑的鸡蛋搭配酸甜西红柿，加上脆爽的凉拌黄瓜，开胃又营养。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "番茄",
+                "鸡蛋",
+                "黄瓜"
+              ],
+              "missing": [],
+              "ingredients": [
+                "西红柿",
+                "鸡蛋",
+                "黄瓜",
+                "盐",
+                "食用油",
+                "白糖"
+              ],
+              "steps": [
+                "西红柿洗净切块，黄瓜切片或拍碎切块，鸡蛋打散加少许盐搅匀。",
+                "热锅放油，倒入蛋液，快速炒散凝固后盛出。",
+                "锅中留底油，放入西红柿块，中小火炒出汁，加少许白糖（可省）提鲜，倒回鸡蛋翻炒均匀，加盐调味出锅。",
+                "黄瓜加少许盐腌制5分钟，沥去多余水分，装盘即可（可点几滴香油增香）。"
+              ],
+              "tips": [
+                "黄瓜先盐腌再沥水，口感更脆爽；作为凉拌，无需多余调料。",
+                "西红柿要炒软出汁，汤汁包裹鸡蛋才入味。",
+                "全程中小火，避免鸡蛋炒老，适合孩子食用。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 3,
+            "search_result": {
+              "recipe_id": 1653,
+              "source_recipe_id": "r0930270",
+              "title": "酱炒鸡蛋",
+              "dish": "酱炒鸡蛋",
+              "quality_score": 1.0,
+              "matched": [
+                "鸡蛋"
+              ],
+              "missing": [
+                "大葱",
+                "葱伴侣大酱"
+              ],
+              "bucket": "还差几样",
+              "score": 0.887,
+              "reason": "命中 1 个已有食材，缺少 2 个食材，偏好匹配：素菜、不辣、简单、适合小孩，质量分 1.00",
+              "recipe_tags": [
+                "不辣",
+                "素菜",
+                "简单",
+                "调料少",
+                "分量少",
+                "适合小孩",
+                "拌",
+                "炒"
+              ],
+              "preference_matches": [
+                "素菜",
+                "不辣",
+                "简单",
+                "适合小孩",
+                "分量少",
+                "调料少",
+                "拌",
+                "炒"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.5,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 1653,
+              "source_recipe_id": "r0930270",
+              "original_title": "酱炒鸡蛋",
+              "generated_title": "西红柿黄瓜炒鸡蛋",
+              "summary": "一道酸甜可口、营养均衡的快手家常菜，专为小朋友设计，简单调味，清爽不腻。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "番茄",
+                "黄瓜",
+                "鸡蛋"
+              ],
+              "missing": [],
+              "ingredients": [
+                "西红柿 1个",
+                "黄瓜 1根",
+                "鸡蛋 2个",
+                "食用油 适量",
+                "盐 少许",
+                "白糖 少许（可选）"
+              ],
+              "steps": [
+                "鸡蛋打散，加少许盐搅匀；黄瓜切薄片，西红柿切小块。",
+                "热锅凉油，倒入蛋液，炒至凝固成块后盛出备用。",
+                "锅底留少许油，放入西红柿块，中火炒出汁，可用锅铲轻压帮助出汁。",
+                "加入黄瓜片，翻炒约半分钟至黄瓜稍软。",
+                "倒回鸡蛋块，调入盐和少许白糖，快速翻炒均匀即可出锅。"
+              ],
+              "tips": [
+                "黄瓜最后放可保持爽脆口感，避免久炒变软。",
+                "西红柿选熟透的更容易出汁，若偏干可沿锅边淋少量清水。",
+                "白糖仅用于平衡西红柿酸味，根据口味可省略，完全适合儿童。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 4,
+            "search_result": {
+              "recipe_id": 1126,
+              "source_recipe_id": "r0603895",
+              "title": "【健身党】西兰花番茄米蕉汁",
+              "dish": "",
+              "quality_score": 1.0,
+              "matched": [
+                "番茄"
+              ],
+              "missing": [
+                "中等个儿头西兰花",
+                "糯米蕉"
+              ],
+              "bucket": "还差几样",
+              "score": 0.847,
+              "reason": "命中 1 个已有食材，缺少 2 个食材，偏好匹配：素菜、不辣、简单、适合小孩，质量分 1.00",
+              "recipe_tags": [
+                "不辣",
+                "素菜",
+                "简单",
+                "调料少",
+                "分量少",
+                "适合小孩",
+                "炒"
+              ],
+              "preference_matches": [
+                "素菜",
+                "不辣",
+                "简单",
+                "适合小孩",
+                "分量少",
+                "调料少",
+                "炒"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.46,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 1126,
+              "source_recipe_id": "r0603895",
+              "original_title": "【健身党】西兰花番茄米蕉汁",
+              "generated_title": "西红柿黄瓜炒鸡蛋",
+              "summary": "简单快手的家常菜，酸甜开胃，专为孩子设计。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "番茄",
+                "鸡蛋",
+                "黄瓜"
+              ],
+              "missing": [],
+              "ingredients": [
+                "西红柿",
+                "鸡蛋",
+                "黄瓜"
+              ],
+              "steps": [
+                "西红柿洗净切块，黄瓜切片，鸡蛋打散备用。",
+                "锅中倒少量油，油热后倒入蛋液，炒熟划散，盛出。",
+                "用锅中余油，放入西红柿块煸炒出汁，再下黄瓜片略炒。",
+                "倒回鸡蛋，加少许盐调味，翻炒均匀即可出锅。"
+              ],
+              "tips": [
+                "可根据孩子口味加一点白糖提鲜。",
+                "鸡蛋不要炒太老，嫩滑口感更受孩子欢迎。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 5,
+            "search_result": {
+              "recipe_id": 1075,
+              "source_recipe_id": "r0576183",
+              "title": "减油低脂健康的西葫芦饼",
+              "dish": "西葫芦饼",
+              "quality_score": 1.0,
+              "matched": [
+                "鸡蛋"
+              ],
+              "missing": [
+                "中等大小西葫芦",
+                "左右面粉"
+              ],
+              "bucket": "还差几样",
+              "score": 0.813,
+              "reason": "命中 1 个已有食材，缺少 2 个食材，偏好匹配：素菜、不辣、简单、适合小孩，质量分 1.00",
+              "recipe_tags": [
+                "不辣",
+                "素菜",
+                "简单",
+                "调料少",
+                "分量少",
+                "适合小孩",
+                "拌",
+                "煎"
+              ],
+              "preference_matches": [
+                "素菜",
+                "不辣",
+                "简单",
+                "适合小孩",
+                "分量少",
+                "调料少",
+                "拌"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.46,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 1075,
+              "source_recipe_id": "r0576183",
+              "original_title": "减油低脂健康的西葫芦饼",
+              "generated_title": "简易西红柿黄瓜炒鸡蛋",
+              "summary": "一道简单快手的家常小炒，营养丰富，口感清爽，非常适合孩子食用。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "番茄",
+                "黄瓜",
+                "鸡蛋"
+              ],
+              "missing": [],
+              "ingredients": [
+                "西红柿 1个",
+                "黄瓜 1根",
+                "鸡蛋 2个",
+                "盐 少许",
+                "食用油 适量"
+              ],
+              "steps": [
+                "西红柿洗净切小块；黄瓜洗净切薄片。",
+                "鸡蛋打入碗中，加入少许盐，用筷子搅打均匀。",
+                "锅中倒入少量油，烧热后倒入蛋液，炒至凝固成块，盛出备用。",
+                "锅中再放少许油，放入西红柿块，中火翻炒至软烂出汁。",
+                "加入黄瓜片，快速翻炒约半分钟，倒入炒好的鸡蛋，调入少许盐，翻炒均匀即可出锅。"
+              ],
+              "tips": [
+                "黄瓜片不要炒太久，保持脆嫩口感更受孩子欢迎。",
+                "如果西红柿偏酸，可加少许白糖中和，但为保持清淡可不加。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          }
+        ],
+        "cache_hit": true,
+        "case_id": "tomato_egg_cucumber_child",
+        "cache_note": "来自 test_case.jsonl 中 rerank 成功且智能生成成功的结果。",
+        "strict_rerank_hit": true
+      }
+    },
+    {
+      "case_id": "potato_chicken_cucumber_child",
+      "match": {
+        "items": [
+          "土豆",
+          "鸡",
+          "黄瓜"
+        ],
+        "excluded_items": [
+          "香菜"
+        ],
+        "filters": {
+          "count_seasonings_as_ingredients": false,
+          "spice": "spicy",
+          "complexity": "complex",
+          "diet": "meat",
+          "for_children": true,
+          "serving_size": "large",
+          "seasoning_amount": "many",
+          "methods": [
+            "炒",
+            "炖"
+          ]
+        }
+      },
+      "source_run_indexes": [
+        4
+      ],
+      "strict_rerank_hit": false,
+      "response": {
+        "input": {
+          "items": [
+            "土豆",
+            "鸡",
+            "黄瓜"
+          ],
+          "excluded_items": [
+            "香菜"
+          ],
+          "filters": {
+            "count_seasonings_as_ingredients": false,
+            "spice": "spicy",
+            "complexity": "complex",
+            "diet": "meat",
+            "for_children": true,
+            "serving_size": "large",
+            "seasoning_amount": "many",
+            "methods": [
+              "炒",
+              "炖"
+            ]
+          },
+          "limit": 5
+        },
+        "rerank_status": {
+          "enabled": true,
+          "configured": true,
+          "attempted": true,
+          "applied": false,
+          "candidate_count": 5,
+          "applied_count": 0,
+          "model": "deepseek-v4-pro",
+          "error": "模型没有返回可解析的 JSON，返回片段：; 重试失败: 模型没有返回可解析的 JSON，返回片段："
+        },
+        "search_total": 2418,
+        "items": [
+          {
+            "rank": 1,
+            "search_result": {
+              "recipe_id": 2154,
+              "source_recipe_id": "r1258860",
+              "title": "黄瓜肉沫",
+              "dish": "",
+              "quality_score": 1.0,
+              "matched": [
+                "黄瓜"
+              ],
+              "missing": [
+                "看个人喜好猪肉"
+              ],
+              "bucket": "再买 1 样",
+              "score": 0.592,
+              "reason": "命中 1 个已有食材，缺少 1 个食材，偏好匹配：荤菜、适合小孩、调料多、炒，质量分 1.00",
+              "recipe_tags": [
+                "不辣",
+                "荤菜",
+                "简单",
+                "调料多",
+                "适合小孩",
+                "拌",
+                "炒"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "适合小孩",
+                "调料多",
+                "炒"
+              ],
+              "preference_mismatches": [
+                "辣",
+                "复杂",
+                "分量多"
+              ],
+              "preference_score": 0.09,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 2154,
+              "source_recipe_id": "r1258860",
+              "original_title": "黄瓜肉沫",
+              "generated_title": "辣味土豆炖鸡炒黄瓜",
+              "summary": "一道香辣入味、层次丰富的家常菜，先炒后炖，鸡肉嫩滑，土豆绵软，黄瓜清爽，适合全家共享。",
+              "bucket": "再买 1 样",
+              "bucket_reason": "还需要补充 1 个主要食材：鸡腿肉。基础调味品和清水不计入缺失。",
+              "matched": [
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "鸡腿肉"
+              ],
+              "ingredients": [
+                "鸡腿肉",
+                "土豆",
+                "黄瓜"
+              ],
+              "steps": [
+                "鸡腿肉切块，加料酒、生抽、老抽、淀粉、少许胡椒粉抓匀腌制15分钟。",
+                "土豆去皮切滚刀块，泡水中防氧化；黄瓜去皮切滚刀块备用。",
+                "热锅冷油，爆香姜片、蒜末、干辣椒段，放一勺豆瓣酱炒出红油。",
+                "倒入鸡块翻炒至变色，加入土豆块翻炒均匀。",
+                "加没过食材的热水，放蚝油、糖，大火烧开转中小火炖15分钟至土豆软烂。",
+                "放入黄瓜块，翻炒后继续炖3分钟，让黄瓜吸收汤汁。",
+                "转大火收浓汤汁，尝味后补盐和鸡精，撒葱花出锅。"
+              ],
+              "tips": [
+                "鸡肉用鸡腿肉口感更嫩，可让摊主帮忙去骨。",
+                "土豆块大小要均匀，炖煮时不易散烂。",
+                "辣度可通过干辣椒用量调节，给孩子吃可去籽或用微辣辣椒。",
+                "黄瓜最后放入能保持脆爽，炖久了会失去口感。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 2,
+            "search_result": {
+              "recipe_id": 2144,
+              "source_recipe_id": "r1251970",
+              "title": "家常鸡肉炖土豆",
+              "dish": "鸡肉炖土豆",
+              "quality_score": 0.9,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "肌肉",
+                "干辣椒",
+                "葱姜蒜"
+              ],
+              "bucket": "还差几样",
+              "score": 0.522,
+              "reason": "命中 1 个已有食材，缺少 3 个食材，偏好匹配：荤菜、辣、复杂、炒，质量分 0.90",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料少",
+                "分量少",
+                "炒",
+                "炖"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "炒",
+                "炖"
+              ],
+              "preference_mismatches": [
+                "适合小孩",
+                "分量多",
+                "调料多"
+              ],
+              "preference_score": 0.2,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 2144,
+              "source_recipe_id": "r1251970",
+              "original_title": "家常鸡肉炖土豆",
+              "generated_title": "香辣黄瓜土豆炖鸡",
+              "summary": "一大锅满足全家的微辣炖鸡，黄瓜带来脆爽，汤汁浓郁下饭。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [],
+              "ingredients": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "steps": [
+                "鸡剁块冷水下锅焯水，捞出沥干；土豆、黄瓜去皮切滚刀块。",
+                "锅中多放油，小火煸香花椒粒、干辣椒段、姜片、葱段，至香气飘出。",
+                "倒入鸡块大火爆炒，炒干水汽至表面微黄，淋入料酒、老抽、生抽和少许冰糖，翻炒上色。",
+                "加入没过鸡肉的热水，放八角、桂皮、香叶，加盖中火炖15分钟。",
+                "开盖放入土豆块，补盐和蚝油，继续炖10分钟至土豆软糯。",
+                "汤汁收浓时倒入黄瓜块，撒蒜末，大火快炒30秒断生即可出锅。"
+              ],
+              "tips": [
+                "干辣椒和花椒根据孩子接受度减量，但保留香味，喜辣可出锅前淋红油。",
+                "黄瓜最后快炒能保持脆爽，若喜欢软烂可炖久些。",
+                "炖煮时用热水可保住鸡肉嫩滑，汤汁留多一点拌饭绝佳。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 3,
+            "search_result": {
+              "recipe_id": 2008,
+              "source_recipe_id": "r1166726",
+              "title": "日式土豆咖喱鸡",
+              "dish": "土豆咖喱鸡",
+              "quality_score": 0.8,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "切麻将块儿大鸡腿",
+                "儿日式咖喱块儿"
+              ],
+              "bucket": "还差几样",
+              "score": 0.51,
+              "reason": "命中 1 个已有食材，缺少 2 个食材，偏好匹配：荤菜、适合小孩、调料多、炒，质量分 0.80",
+              "recipe_tags": [
+                "不辣",
+                "荤菜",
+                "简单",
+                "调料多",
+                "适合小孩",
+                "炒",
+                "炖"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "适合小孩",
+                "调料多",
+                "炒",
+                "炖"
+              ],
+              "preference_mismatches": [
+                "辣",
+                "复杂",
+                "分量多"
+              ],
+              "preference_score": 0.13,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 2008,
+              "source_recipe_id": "r1166726",
+              "original_title": "日式土豆咖喱鸡",
+              "generated_title": "香辣黄瓜土豆咖喱鸡",
+              "summary": "融合辣味与日式咖喱的浓郁，加入黄瓜增添清脆，层次丰富，分量十足，全家都爱。",
+              "bucket": "灵感参考",
+              "bucket_reason": "还需要补充 7 个主要食材：鸡腿肉、日式咖喱块、干辣椒、姜、蒜等。基础调味品和清水不计入缺失。",
+              "matched": [
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "鸡腿肉",
+                "日式咖喱块",
+                "干辣椒",
+                "姜",
+                "蒜",
+                "花生酱",
+                "牛奶"
+              ],
+              "ingredients": [
+                "鸡腿肉",
+                "土豆",
+                "黄瓜",
+                "日式咖喱块",
+                "干辣椒",
+                "姜",
+                "蒜",
+                "花生酱",
+                "牛奶"
+              ],
+              "steps": [
+                "鸡腿肉切麻将块，用少许盐、酱油、糖、油和干淀粉抓匀，腌制15分钟。",
+                "姜蒜切片，干辣椒剪段去籽；土豆和黄瓜切滚刀块，土豆泡水防氧化。",
+                "热锅冷油，爆香姜蒜和干辣椒至呛辣味出，放入腌好的鸡块翻炒至表面微黄。",
+                "加入土豆块翻炒片刻，倒入没过食材的开水，放入咖喱块搅拌融化，大火烧开。",
+                "加入一半牛奶，转中小火炖煮，不时用锅铲轻推防粘，炖10分钟后放入黄瓜块。",
+                "继续炖至土豆绵软、鸡肉熟透，再次加入剩余牛奶和一小勺花生酱，搅拌均匀，转大火收浓汤汁即可。",
+                "尝味后酌情补盐或酱油，出锅装盘。"
+              ],
+              "tips": [
+                "干辣椒可依孩子接受度调整用量或换成辣椒粉，微辣更开胃",
+                "黄瓜最后放入保持脆爽口感，避免久炖软烂",
+                "花生酱是点睛之笔，能增加复合香味，但不宜多以免抢味",
+                "搭配米饭或面包都非常美味，适合家庭大分量聚餐"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 4,
+            "search_result": {
+              "recipe_id": 2339,
+              "source_recipe_id": "r1400063",
+              "title": "零失误土豆焖五花肉",
+              "dish": "焖五花肉",
+              "quality_score": 1.0,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "拳头大一坨五花肉",
+                "姜",
+                "蒜",
+                "白胡椒粉",
+                "冰糖",
+                "青红椒"
+              ],
+              "bucket": "灵感参考",
+              "score": 0.481,
+              "reason": "命中 1 个已有食材，缺少 6 个食材，偏好匹配：荤菜、辣、复杂、分量多，质量分 1.00",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料多",
+                "分量多",
+                "炒"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "分量多",
+                "调料多",
+                "炒"
+              ],
+              "preference_mismatches": [
+                "适合小孩"
+              ],
+              "preference_score": 0.3,
+              "rerank_score": null,
+              "rerank_reason": null
+            },
+            "generated_recipe": {
+              "recipe_id": 2339,
+              "source_recipe_id": "r1400063",
+              "original_title": "零失误土豆焖五花肉",
+              "generated_title": "香辣土豆焖鸡",
+              "summary": "将五花肉换成鸡肉，加入黄瓜清爽，微辣口感更开胃，适合全家享用的土豆焖鸡。",
+              "bucket": "再买 1 样",
+              "bucket_reason": "还需要补充 1 个主要食材：大鸡腿。基础调味品和清水不计入缺失。",
+              "matched": [
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "大鸡腿"
+              ],
+              "ingredients": [
+                "大鸡腿2只（切块）",
+                "土豆2个（滚刀块）",
+                "黄瓜1根（切厚片）"
+              ],
+              "steps": [
+                "鸡块加少许料酒、白胡椒粉、生抽腌制10分钟；土豆切块后冲去表面淀粉，黄瓜切厚片备用。",
+                "锅中多倒些油，小火炒香姜片、蒜瓣、干辣椒段（去籽降低辣度），加入一小勺蚝油炒出香味。",
+                "转中大火，倒入鸡块煸炒至表面发白，淋入料酒翻炒去腥，再加入生抽、老抽、几颗冰糖翻炒上色。",
+                "倒入没过鸡块一半的热水，盖上盖中火焖8分钟。",
+                "开盖放入土豆块，加盐、白胡椒粉、鸡精（可选），翻匀后再次加盖焖10分钟至土豆软糯。",
+                "开盖转大火，放入黄瓜片快速翻炒收汁，淋少许香油即可出锅。"
+              ],
+              "tips": [
+                "为了孩子食用，干辣椒可去籽或仅放1-2个微辣提味，也可用甜椒代替。",
+                "土豆焖煮时不要频繁翻动，避免碎掉；黄瓜最后加入保持脆爽口感。",
+                "鸡肉选用鸡腿肉更嫩滑，若用鸡胸需缩短焖煮时间以防变柴。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          }
+        ],
+        "cache_hit": true,
+        "case_id": "potato_chicken_cucumber_child",
+        "cache_note": "test_case.jsonl 中该输入没有 rerank 成功记录；当前缓存仅保留智能生成成功的结果，rerank_status 保持原始失败状态。",
+        "strict_rerank_hit": false
+      }
+    },
+    {
+      "case_id": "potato_chicken_cucumber",
+      "match": {
+        "items": [
+          "土豆",
+          "鸡",
+          "黄瓜"
+        ],
+        "excluded_items": [
+          "香菜"
+        ],
+        "filters": {
+          "count_seasonings_as_ingredients": false,
+          "spice": "spicy",
+          "complexity": "complex",
+          "diet": "meat",
+          "serving_size": "large",
+          "seasoning_amount": "many",
+          "methods": [
+            "炒",
+            "炖"
+          ]
+        }
+      },
+      "source_run_indexes": [
+        6
+      ],
+      "strict_rerank_hit": true,
+      "response": {
+        "input": {
+          "items": [
+            "土豆",
+            "鸡",
+            "黄瓜"
+          ],
+          "excluded_items": [
+            "香菜"
+          ],
+          "filters": {
+            "count_seasonings_as_ingredients": false,
+            "spice": "spicy",
+            "complexity": "complex",
+            "diet": "meat",
+            "serving_size": "large",
+            "seasoning_amount": "many",
+            "methods": [
+              "炒",
+              "炖"
+            ]
+          },
+          "limit": 5
+        },
+        "rerank_status": {
+          "enabled": true,
+          "configured": true,
+          "attempted": true,
+          "applied": true,
+          "candidate_count": 5,
+          "applied_count": 5,
+          "model": "deepseek-v4-pro",
+          "fallback": null,
+          "warning": null,
+          "error": null
+        },
+        "search_total": 2418,
+        "items": [
+          {
+            "rank": 1,
+            "search_result": {
+              "recipe_id": 2144,
+              "source_recipe_id": "r1251970",
+              "title": "家常鸡肉炖土豆",
+              "dish": "鸡肉炖土豆",
+              "quality_score": 0.9,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "肌肉",
+                "干辣椒",
+                "葱姜蒜"
+              ],
+              "bucket": "还差几样",
+              "score": 0.945,
+              "reason": "命中 1 个已有食材，缺少 3 个食材，偏好匹配：荤菜、辣、复杂、炒，质量分 0.90，模型判断：拥有鸡和土豆，主料完美匹配；口味辣、复杂、含炒炖，虽调料和分量略少，但核心食材契合度最高。",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料少",
+                "分量少",
+                "炒",
+                "炖"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "炒",
+                "炖"
+              ],
+              "preference_mismatches": [
+                "分量多",
+                "调料多"
+              ],
+              "preference_score": 0.3,
+              "rerank_score": 0.92,
+              "rerank_reason": "拥有鸡和土豆，主料完美匹配；口味辣、复杂、含炒炖，虽调料和分量略少，但核心食材契合度最高。"
+            },
+            "generated_recipe": {
+              "recipe_id": 2144,
+              "source_recipe_id": "r1251970",
+              "original_title": "家常鸡肉炖土豆",
+              "generated_title": "香辣鸡块炖双蔬",
+              "summary": "鸡肉先炒后炖，搭配土豆绵软、黄瓜清爽，融入多重香辣调料，浓郁下饭，大份量适合家庭聚餐。",
+              "bucket": "灵感参考",
+              "bucket_reason": "还需要补充 6 个主要食材：干辣椒、花椒、姜、蒜、葱等。基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "干辣椒",
+                "花椒",
+                "姜",
+                "蒜",
+                "葱",
+                "郫县豆瓣酱"
+              ],
+              "ingredients": [
+                "鸡 600克",
+                "土豆 500克",
+                "黄瓜 2根",
+                "干辣椒",
+                "花椒",
+                "姜",
+                "蒜",
+                "葱",
+                "料酒",
+                "生抽",
+                "老抽",
+                "蚝油",
+                "郫县豆瓣酱",
+                "白糖",
+                "盐",
+                "食用油"
+              ],
+              "steps": [
+                "鸡块冷水下锅，加姜片和料酒焯水，沸腾后撇去浮沫，捞出沥干。",
+                "土豆去皮切滚刀块，黄瓜切滚刀块备用。",
+                "锅中放油，小火煸香干辣椒段、花椒、姜片、蒜粒，加入郫县豆瓣酱炒出红油。",
+                "放入鸡块大火翻炒至表面微黄，淋入料酒、生抽、老抽、蚝油和白糖，翻炒上色。",
+                "加入没过食材的热水，放入土豆块，加盐调味，大火烧开转中小火炖约15分钟。",
+                "待土豆能用筷子扎透时，放入黄瓜块继续炖3分钟，不要盖盖保持翠绿。",
+                "开大火收至汤汁浓稠，撒入葱段和蒜末，翻匀出锅。"
+              ],
+              "tips": [
+                "鸡块焯水去腥，肉质更紧实。",
+                "黄瓜最后下锅可保持脆爽口感，避免久炖软烂。",
+                "喜辣可多放干辣椒或加入新鲜小米辣。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 2,
+            "search_result": {
+              "recipe_id": 1259,
+              "source_recipe_id": "r0692684",
+              "title": "老家土豆炖排骨",
+              "dish": "土豆炖排骨",
+              "quality_score": 1.0,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "排骨 一根排骨",
+                "姜",
+                "葱 一根大葱",
+                "花椒 花椒粉",
+                "干辣椒",
+                "洋葱",
+                "蒜",
+                "青椒 可有可无",
+                "胡萝卜",
+                "醋 一勺半"
+              ],
+              "bucket": "灵感参考",
+              "score": 0.871,
+              "reason": "命中 1 个已有食材，缺少 10 个食材，偏好匹配：荤菜、辣、复杂、分量多，质量分 1.00，模型判断：辣、复杂、分量多、调料多、含炒炖，口味偏好全满足；但缺少排骨等主料，食材匹配一般。",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料多",
+                "分量多",
+                "拌",
+                "炒",
+                "炖"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "分量多",
+                "调料多",
+                "炒",
+                "炖"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.44,
+              "rerank_score": 0.78,
+              "rerank_reason": "辣、复杂、分量多、调料多、含炒炖，口味偏好全满足；但缺少排骨等主料，食材匹配一般。"
+            },
+            "generated_recipe": {
+              "recipe_id": 1259,
+              "source_recipe_id": "r0692684",
+              "original_title": "老家土豆炖排骨",
+              "generated_title": "香辣土豆炖鸡块",
+              "summary": "鸡肉与土豆炖至软糯，加入清脆黄瓜，麻辣鲜香，超级下饭。",
+              "bucket": "灵感参考",
+              "bucket_reason": "还需要补充 6 个主要食材：干辣椒5-、花椒1小把、姜1块、蒜、大葱等。基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "干辣椒5-",
+                "花椒1小把",
+                "姜1块",
+                "蒜",
+                "大葱",
+                "醋1勺半"
+              ],
+              "ingredients": [
+                "鸡半只（斩块）",
+                "土豆2个",
+                "黄瓜1根",
+                "干辣椒5-6个",
+                "花椒1小把",
+                "姜1块",
+                "蒜5瓣",
+                "大葱1根",
+                "生抽4勺",
+                "老抽2勺",
+                "醋1勺半",
+                "盐适量",
+                "食用油少许"
+              ],
+              "steps": [
+                "鸡块冷水下锅，煮开后撇去浮沫，捞出沥干。",
+                "锅烧热放油，下姜片、蒜瓣、干辣椒段和花椒爆香。",
+                "倒入鸡块翻炒至表面微黄，加入生抽、老抽炒匀上色。",
+                "加入没过鸡块的热水，大火煮沸后转小火炖20分钟。",
+                "土豆去皮切滚刀块，放入锅中，继续炖15分钟至土豆绵软。",
+                "开大火收汁，汤汁变浓时放入黄瓜块快速翻炒，淋入醋，加盐调味，撒入大葱段翻匀即可。"
+              ],
+              "tips": [
+                "黄瓜最后下锅保持清脆口感。",
+                "炖煮时水量要一次加足，中途不宜加水。",
+                "喜辣可增加干辣椒或用鲜辣椒代替。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 3,
+            "search_result": {
+              "recipe_id": 2339,
+              "source_recipe_id": "r1400063",
+              "title": "零失误土豆焖五花肉",
+              "dish": "焖五花肉",
+              "quality_score": 1.0,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "拳头大一坨五花肉",
+                "姜",
+                "蒜",
+                "白胡椒粉",
+                "冰糖",
+                "青红椒"
+              ],
+              "bucket": "灵感参考",
+              "score": 0.773,
+              "reason": "命中 1 个已有食材，缺少 6 个食材，偏好匹配：荤菜、辣、复杂、分量多，质量分 1.00，模型判断：辣、复杂、分量多、调料多，但仅有炒无炖，缺炖的烹饪方式；且无五花肉，适配度较低。",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料多",
+                "分量多",
+                "炒"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "分量多",
+                "调料多",
+                "炒"
+              ],
+              "preference_mismatches": [],
+              "preference_score": 0.4,
+              "rerank_score": 0.55,
+              "rerank_reason": "辣、复杂、分量多、调料多，但仅有炒无炖，缺炖的烹饪方式；且无五花肉，适配度较低。"
+            },
+            "generated_recipe": {
+              "recipe_id": 2339,
+              "source_recipe_id": "r1400063",
+              "original_title": "零失误土豆焖五花肉",
+              "generated_title": "香辣土豆炖鸡块配黄瓜",
+              "summary": "用鸡肉替代五花肉，加入黄瓜增添清爽口感，香辣浓醇，料足过瘾，适合大家庭享用。",
+              "bucket": "灵感参考",
+              "bucket_reason": "还需要补充 11 个主要食材：姜、蒜、干红辣椒、青红椒共、蚝油1大勺等。基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [
+                "姜",
+                "蒜",
+                "干红辣椒",
+                "青红椒共",
+                "蚝油1大勺",
+                "料酒2大勺",
+                "生抽2大勺",
+                "老抽1大勺",
+                "白胡椒粉1小勺",
+                "冰糖8粒",
+                "郫县豆瓣酱1大勺"
+              ],
+              "ingredients": [
+                "半只鸡（斩块）",
+                "土豆 2 个（切块）",
+                "黄瓜 1 根（切滚刀块）",
+                "姜 5 片",
+                "蒜 4 瓣（拍扁）",
+                "干红辣椒 6 个（剪段）",
+                "青红椒 共 2 个（切圈）",
+                "蚝油 1 大勺",
+                "料酒 2 大勺",
+                "生抽 2 大勺",
+                "老抽 1 大勺",
+                "盐 适量",
+                "白胡椒粉 1 小勺",
+                "冰糖 8 粒",
+                "郫县豆瓣酱 1 大勺",
+                "食用油 适量"
+              ],
+              "steps": [
+                "鸡块冷水下锅，加 1 大勺料酒和 2 片姜，焯水后捞出沥干；土豆切块后泡水去淀粉；黄瓜切滚刀块；青红椒切圈备用。",
+                "热锅倒油，下冰糖小火炒至琥珀色，迅速倒入鸡块翻炒上色，盛出备用。",
+                "锅中补少许油，放入姜蒜、干辣椒段爆香，加郫县豆瓣酱炒出红油。",
+                "把鸡块倒回锅翻炒，淋入 1 大勺料酒、生抽、老抽、蚝油，炒匀后加热水没过鸡肉。",
+                "大火烧开转中火炖 10 分钟，加入土豆块、盐、白胡椒粉，拌匀后继续盖盖焖炖 15 分钟。",
+                "待土豆软糯、汤汁收浓，放入黄瓜块和青红椒圈，大火翻炒 1 分钟至黄瓜断生即可出锅。"
+              ],
+              "tips": [
+                "炒糖色用小火，颜色变深棕立刻下鸡肉，避免焦苦。",
+                "黄瓜最后下锅，保持脆嫩口感；若喜欢软烂可提前放入多炖 2 分钟。",
+                "辣度可依个人口味调整干辣椒数量，也可加少许花椒增香。",
+                "汤汁不要收太干，留一些拌饭超赞。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          },
+          {
+            "rank": 4,
+            "search_result": {
+              "recipe_id": 782,
+              "source_recipe_id": "r0398419",
+              "title": "红烧排骨(土豆)",
+              "dish": "红烧排骨",
+              "quality_score": 1.0,
+              "matched": [
+                "土豆"
+              ],
+              "missing": [
+                "葱段",
+                "姜片",
+                "多放大蒜",
+                "多放花椒",
+                "角",
+                "没有可以不放桂皮,豆蔻,白芷",
+                "没有可以不放筚拨,孜然粒",
+                "料酒,老抽,生抽,盐",
+                "排骨"
+              ],
+              "bucket": "灵感参考",
+              "score": 0.749,
+              "reason": "命中 1 个已有食材，缺少 9 个食材，偏好匹配：荤菜、辣、复杂、分量多，质量分 1.00，模型判断：辣、复杂、分量多、含炒炖，口味匹配；缺少排骨及多种调料，需大量采买。",
+              "recipe_tags": [
+                "辣",
+                "荤菜",
+                "复杂",
+                "调料少",
+                "分量多",
+                "炒",
+                "炖"
+              ],
+              "preference_matches": [
+                "荤菜",
+                "辣",
+                "复杂",
+                "分量多",
+                "炒",
+                "炖"
+              ],
+              "preference_mismatches": [
+                "调料多"
+              ],
+              "preference_score": 0.37,
+              "rerank_score": 0.62,
+              "rerank_reason": "辣、复杂、分量多、含炒炖，口味匹配；缺少排骨及多种调料，需大量采买。"
+            },
+            "generated_recipe": {
+              "recipe_id": 782,
+              "source_recipe_id": "r0398419",
+              "original_title": "红烧排骨(土豆)",
+              "generated_title": "辣味土豆炖鸡块配黄瓜",
+              "summary": "以鸡代排，辣香升级，加入黄瓜清爽解腻，炖炒结合浓郁过瘾。",
+              "bucket": "马上能做",
+              "bucket_reason": "生成菜谱所需主要食材已被已有食材覆盖，基础调味品和清水不计入缺失。",
+              "matched": [
+                "鸡",
+                "土豆",
+                "黄瓜"
+              ],
+              "missing": [],
+              "ingredients": [
+                "鸡（切块）",
+                "土豆",
+                "黄瓜"
+              ],
+              "steps": [
+                "鸡块冷水下锅，加姜片焯水去腥，捞出洗净备用。",
+                "热锅凉油，小火煸香花椒、八角、干辣椒段、姜片、蒜瓣，炒出香后捞出渣料（蒜瓣留下待用）。",
+                "锅中加冰糖，小火翻炒至褐红色，下鸡块快速翻炒上色，淋入料酒、生抽、少许老抽调味。",
+                "倒入热水没过鸡块，加入蒜瓣和炖肉香料包（桂皮、豆蔻等），大火烧开转中小火炖30分钟。",
+                "加入土豆块，继续炖15分钟至软糯，放入黄瓜滚刀块，加盐调味，再炖5分钟。",
+                "大火收浓汤汁，出锅装盘。"
+              ],
+              "tips": [
+                "炒糖色务必小火，焦化变黑会发苦。",
+                "黄瓜最后下锅，保留脆度与清香；爱软烂可提前放入。",
+                "偏好更辣可额外炝入小米椒或一勺红油豆瓣酱。"
+              ],
+              "model": "deepseek-v4-pro",
+              "disclaimer": "该结果由大模型根据原始菜谱和用户偏好生成，适合作为改良建议，请以实际烹饪情况调整。"
+            },
+            "generation_error": null
+          }
+        ],
+        "cache_hit": true,
+        "case_id": "potato_chicken_cucumber",
+        "cache_note": "来自 test_case.jsonl 中 rerank 成功且智能生成成功的结果。",
+        "strict_rerank_hit": true
+      }
+    }
+  ]
+}

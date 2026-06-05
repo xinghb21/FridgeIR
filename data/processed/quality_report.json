@@ -1,0 +1,9 @@
+{
+  "total_raw": 1550151,
+  "kept": 1486919,
+  "empty_name": 0,
+  "few_ingredients": 44190,
+  "few_steps": 117,
+  "duplicate": 18925,
+  "avg_ingredients": 7.32
+}

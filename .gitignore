@@ -1,0 +1,26 @@
+# ---- Secrets & env（绝不提交真实 key）----
+.env
+.env.*
+!.env.example
+*.local
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- Node / 前端 ----
+node_modules/
+dist/
+
+# ---- 数据大文件（保留小子集与报告，忽略 GB 级原始/全量/索引）----
+data/raw/
+data/index/
+data/processed/recipes.jsonl
+
+# ---- OS / 编辑器 / 工具 ----
+.DS_Store
+.vscode/
+.claude/
