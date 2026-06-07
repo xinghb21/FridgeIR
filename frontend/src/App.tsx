@@ -31,14 +31,14 @@ export default function App() {
     checkHealth().then(setBackendOk);
   }, []);
 
-  const doSearch = async (toPage = 1) => {
+  const doSearch = async (toPage = 1, itemsArg: string[] = items) => {
     setLoading(true);
     setError(null);
     setSearched(true);
     setPage(toPage);
     try {
       const data = await searchByIngredients({
-        items,
+        items: itemsArg,
         excluded_items: excluded,
         filters,
         page: toPage,
@@ -51,6 +51,12 @@ export default function App() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const tryExample = (list: string[]) => {
+    setItems(list);
+    doSearch(1, list);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const openDetail = async (item: SearchItem) => {
@@ -164,7 +170,32 @@ export default function App() {
 
           {loading && <div className="state">搜索中…</div>}
           {!loading && !searched && (
-            <div className="state">输入你有的食材，点击「搜索菜谱」开始。</div>
+            <div className="empty-hero">
+              <div className="empty-emoji">🍳</div>
+              <h2 className="empty-title">冰箱里有啥</h2>
+              <p className="empty-sub">
+                在左侧输入你手头的食材，点「搜索菜谱」，
+                <br />
+                看看现在<b>马上能做</b>、或<b>差一两样</b>就能做的菜。
+              </p>
+              <div className="empty-examples">
+                <span className="empty-examples-label">没想好？试试：</span>
+                {[
+                  ["西红柿", "鸡蛋"],
+                  ["土豆", "牛肉"],
+                  ["豆腐"],
+                  ["鸡胸肉", "西兰花"],
+                ].map((ex) => (
+                  <button
+                    key={ex.join("+")}
+                    className="empty-example-chip"
+                    onClick={() => tryExample(ex)}
+                  >
+                    {ex.join(" + ")}
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
           {!loading && searched && result && result.items.length === 0 && !error && (
             <div className="state">没有匹配的菜谱，试着减少偏好或更换食材。</div>

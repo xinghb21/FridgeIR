@@ -283,6 +283,62 @@ button {
   color: var(--muted);
 }
 
+/* 初始空状态引导 */
+.empty-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 24px;
+}
+.empty-emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+.empty-title {
+  margin: 0 0 10px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+}
+.empty-sub {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.empty-sub b {
+  color: var(--primary);
+}
+.empty-examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.empty-examples-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.empty-example-chip {
+  padding: 8px 16px;
+  border: 1.5px solid var(--border);
+  background: var(--panel);
+  border-radius: 22px;
+  font-size: 14px;
+  color: var(--text);
+  transition: all 0.14s;
+}
+.empty-example-chip:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
 /* 结果卡片 */
 .cards {
   display: grid;
