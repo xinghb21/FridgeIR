@@ -20,6 +20,7 @@ export default function App() {
   const [searched, setSearched] = useState(false);
 
   const [backendOk, setBackendOk] = useState<boolean | null>(null);
+  const [confirmDismissed, setConfirmDismissed] = useState(false);
 
   const [detailOpen, setDetailOpen] = useState(false);
   const [detail, setDetail] = useState<RecipeDetail | null>(null);
@@ -35,6 +36,7 @@ export default function App() {
     setLoading(true);
     setError(null);
     setSearched(true);
+    setConfirmDismissed(false);
     setPage(toPage);
     try {
       const data = await searchByIngredients({
@@ -142,16 +144,33 @@ export default function App() {
                   ))}
                 </div>
               )}
-              {result.parsed.need_confirmation.length > 0 && (
-                <div className="parsed-row">
-                  <span className="parsed-label">待确认</span>
-                  {result.parsed.need_confirmation.map((t) => (
-                    <span key={t} className="chip chip-warn">{t}</span>
-                  ))}
-                </div>
-              )}
             </div>
           )}
+
+          {!confirmDismissed &&
+            result?.parsed?.need_confirmation &&
+            result.parsed.need_confirmation.length > 0 && (
+              <div className="banner banner-confirm" role="alert">
+                <span className="confirm-icon">⚠️</span>
+                <div className="confirm-body">
+                  <span className="confirm-text">
+                    以下食材识别置信度较低，请确认是否正确：
+                  </span>
+                  <span className="confirm-chips">
+                    {result.parsed.need_confirmation.map((t) => (
+                      <span key={t} className="chip chip-warn">{t}</span>
+                    ))}
+                  </span>
+                </div>
+                <button
+                  className="confirm-close"
+                  onClick={() => setConfirmDismissed(true)}
+                  aria-label="知道了"
+                >
+                  ×
+                </button>
+              </div>
+            )}
 
           {error && <div className="banner banner-error">{error}</div>}
 

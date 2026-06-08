@@ -242,6 +242,42 @@ button {
   border: 1px solid #ffc9c9;
   color: #c92a2a;
 }
+.banner-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff9db;
+  border: 1px solid #ffe066;
+  color: #846a00;
+}
+.confirm-icon {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.confirm-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.confirm-text {
+  font-weight: 600;
+}
+.confirm-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.confirm-close {
+  border: none;
+  background: transparent;
+  color: #846a00;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
 .parsed {
   margin-bottom: 14px;
 }
